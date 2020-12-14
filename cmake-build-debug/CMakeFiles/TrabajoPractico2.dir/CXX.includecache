@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Prog/TrabajoPractico2/leer_csv.cpp
+iostream
+-
+fstream
+-
+string
+-
+
+E:/Prog/TrabajoPractico2/main.cpp
+iostream
+-
+leer_csv.cpp
+E:/Prog/TrabajoPractico2/leer_csv.cpp
+
