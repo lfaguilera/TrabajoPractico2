@@ -12,3 +12,16 @@ Personaje::Personaje()  {
 
 void Personaje::alimentarse() {
 }
+
+void Personaje::nombrar(string nombreNuevo) {
+    nombre = nombreNuevo;
+}
+
+Personaje Personaje::mostrar(Personaje personaje) {
+
+    cout<< "Nombre :\n\t" << nombre << endl;
+    cout << "Escudo :\n\t" << escudo << endl;
+    cout << "Vidas :\n\t" << vidas << endl;
+    cout << "Energia :\n\t" << energia << endl;
+    cout << "Elemento :\n\t" << elemento << endl;
+}

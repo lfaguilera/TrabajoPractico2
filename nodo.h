@@ -1,33 +1,33 @@
-
-
 #ifndef NODO_H_INCLUDED
 #define NODO_H_INCLUDED
 
-//typedef int Dato;
-#include "personaje.h"
 #include <string>
-using namespace std;
+#include "personaje_agua.h"
+#include "personaje_tierra.h"
+#include "personaje_fuego.h"
+#include "personaje_aire.h"
+
+typedef std::string Dato;
 
 class Nodo {
 private:
     // atributos
-    Personaje personaje;
+    Dato dato;
     Nodo* siguiente;
+    Nodo* anterior;
+
 public:
     // metodos
     // constructor
     // PRE:
-    // POS: crea un nodo con personaje = p guarda la direccion del primer nodo en reset y siguiente = 0
-    Nodo(string nombre, int escudo,int vidas,int energia);
-    //PRE: El nodo exste
-    //POS: Intercambia el personaje guardado por p
-    void cambiar_dato(Personaje p);
-    //PRE:Existe siguiente
-    //POS: Cambia el nodo por el nodo al que apunta este
+    // POS: crea un nodo con dato = d y siguiente = 0
+    Nodo(Dato d);
+
+    void cambiar_dato(Dato d);
+
     void cambiar_siguiente(Nodo* s);
-    //PRE: el personaje existe en la lista de personajes
-    //POS: Devuelve las caracteristicas del personaje
-    Personaje obtener_personaje(string nombre);
+
+    Dato obtener_dato();
 
     Nodo* obtener_siguiente();
 };

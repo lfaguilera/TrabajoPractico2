@@ -4,12 +4,11 @@
 
 #include <string>
 #include "menu.h"
+#include "lista.h"
 #include "personaje_agua.h"
 #include "personaje_aire.h"
 #include "personaje_fuego.h"
 #include "personaje_tierra.h"
-#include "Lista.h"
-
 
 using namespace std;
 
@@ -29,7 +28,7 @@ void menu::elegir() {
             string elemental;
             cout<<"que elemento [agua|fuego|tierra|aire] "<<endl;
             cin >> elemental;
-            elegir.agregarPersonaje(elemental);
+            elegir.agregarPersonaje(elemento);
             break;
         }
         case 2: {
@@ -66,6 +65,7 @@ void menu::elegir() {
 
 }
 
+
 void menu::agregarPersonaje(string elemento) {
     cout << "Agregar nuevo personaje\n" << endl;
 
@@ -89,13 +89,13 @@ void menu::agregarPersonaje(string elemento) {
 
     switch (index) {
         case 0 : {
-            PersonajeAgua Agua;
-            Agua.agregarPersonaje();
+            PersonajeAgua agua;
+            agua.agregarPersonaje();
             break;
         }
         case 1 : {
-            PersonajeFuego Fuego;
-            Fuego.agregarPersonaje();
+            PersonajeFuego fuego;
+            fuego.agregarPersonaje();
             break;
         }
         case 2 : {
@@ -104,13 +104,14 @@ void menu::agregarPersonaje(string elemento) {
             break;
         }
         case 3 : {
-            lista<PersonajeAire>Aire;
+            PersonajeAire Aire;
             Aire.agregarPersonaje();
             break;
         }
     }
 
 }
+
 
 void menu::eliminarPersonaje(string nombre) {
     cout << "Eliminar personaje\n" << endl;
@@ -124,17 +125,17 @@ void menu::buscarNombre(string nombre) {
     cout << "Buscar por nombre los detalles de un personaje particular\n" << endl;
 }
 
-void menu::alimentarPrsonaje(nodo nombre) {
+void menu::alimentarPrsonaje(Nodo nombre) {
     cout << "Alimentar un personaje\n" << endl;
-    nobre.eliminar();
-    /*
+    nombre.eliminar();
+
     switch (index) {
-        case "aire": {
+        case 0: {
             PersonajeAgua Agua;
             Agua.alimentar();
             break;
         }
-        case :{
+        case 1:{
             PersonajeFuego Fuego;
             Fuego.alimentar();
             break;
@@ -149,7 +150,6 @@ void menu::alimentarPrsonaje(nodo nombre) {
         }
 
     }
-     */
 
 }
 

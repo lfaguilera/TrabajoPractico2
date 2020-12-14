@@ -1,23 +1,20 @@
-
-
 #include "nodo.h"
 
-Nodo::Nodo(string nombre, int escudo,int vidas,int energia) {
-    Personaje ;
-    personaje ;
+Nodo::Nodo(Dato d) {
+    dato = d;
     siguiente = 0;
 }
 
-void Nodo::cambiar_dato(Personaje p) {
-    personaje = p;
+void Nodo::cambiar_dato(Dato d) {
+    dato = d;
 }
 
 void Nodo::cambiar_siguiente(Nodo* s) {
     siguiente = s;
 }
 
-Personaje Nodo::obtener_personaje(string nombre) {
-    return personaje;
+Dato Nodo::obtener_dato() {
+    return dato;
 }
 
 Nodo* Nodo::obtener_siguiente() {

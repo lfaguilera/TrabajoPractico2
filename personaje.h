@@ -9,7 +9,7 @@
 
 using namespace std;
 
-typedef int Dato;
+//typedef int Dato;
 
 class Personaje {
 protected:
@@ -30,5 +30,9 @@ public:
     //PRE:-
     //POS:-
     virtual void alimentarse();
+
+    void nombrar(string nombreNuevo);
+
+    Personaje mostrar(Personaje personaje);
 };
 #endif //TRABAJOPRACTICO2_PERSONAJE_H

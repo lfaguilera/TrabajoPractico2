@@ -15,6 +15,7 @@ void leerArchivos() {
 
 }
 
+
 struct Registro
 {
     string elemento;
@@ -25,13 +26,13 @@ struct Registro
 
 int main()
 {
-    string filename;
+    string filename = "personajes.csv";
     Registro registro{};
     float suma = 0, count = 0;
     char c;
 
-    cout << "\nNombre del archivo: ";
-    getline(cin, filename);
+    //cout << "\nNombre del archivo: ";
+    //getline(cin, filename);
 
     fstream in(filename);
 

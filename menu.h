@@ -14,10 +14,11 @@ private:
     int eleccion;
     int index;
     string elementos[4] = {"agua","fuego","tierra","aire"};
+    string elemento;
     string nombre;
 public:
     void elegir();
-    void agregarPersonaje ();
+    void agregarPersonaje (elemento);
     void eliminarPersonaje (string nombre);
     void mostrarTodos ();
     void buscarNombre (string nombre);
