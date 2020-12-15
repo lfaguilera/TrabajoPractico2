@@ -16,7 +16,7 @@ public:
     Cola();
 
     // pos: agrega d al final
-    void alta(Dato d);
+    void alta(Personaje p);
 
     // pre: cola no vacia
     // pos: saca el elemento que esta al principio
@@ -24,7 +24,7 @@ public:
 
     // pre: cola no vacia
     // pos: devuelve el primer dato de la cola
-    Dato consulta();
+    Personaje consulta();
 
 
     bool vacia();

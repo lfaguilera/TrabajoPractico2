@@ -19,6 +19,7 @@ protected:
     size_t vidas; // [10, 100]
     size_t energia; // [0, 20]
     string elemento; // cadena
+    string alimento; // cadena
 
 public:
     // metodos
@@ -33,6 +34,8 @@ public:
 
     void nombrar(string nombreNuevo);
 
-    Personaje mostrar(Personaje personaje);
+    string cadenaNombre();
+
+    void mostrar();
 };
 #endif //TRABAJOPRACTICO2_PERSONAJE_H

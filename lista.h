@@ -11,7 +11,7 @@ private:
     Nodo* primero;
     Nodo* actual;
     int cantidad;
-    string elemento;
+    //string elemento;
 
 public:
     // constructor
@@ -21,23 +21,7 @@ public:
     // pre: 0 < pos <= cantidad + 1
     // pos: inserta el dato d en la posicion pos, la 1 es la primera
     //        ademas incrementa cantidad en 1
-    void alta(Dato d, int pos, string elemento);
-    // pre: 0 < pos <= cantidad + 1
-    // pos: inserta el dato d en la posicion pos, la 1 es la primera
-    //        ademas incrementa cantidad en 1
-    void altaAgua(PersonajeAire d, int pos);
-    // pre: 0 < pos <= cantidad + 1
-    // pos: inserta el dato d en la posicion pos, la 1 es la primera
-    //        ademas incrementa cantidad en 1
-    void altaAire(PersonajeTierra d, int pos);
-    // pre: 0 < pos <= cantidad + 1
-    // pos: inserta el dato d en la posicion pos, la 1 es la primera
-    //        ademas incrementa cantidad en 1
-    void altaTierra(PersonajeFuego d, int pos);
-    // pre: 0 < pos <= cantidad + 1
-    // pos: inserta el dato d en la posicion pos, la 1 es la primera
-    //        ademas incrementa cantidad en 1
-    void altaFuego(PersonajeAgua d, int pos);
+    void alta(Personaje p, int pos);
 
     // pre: 0 < pos <= cantidad
     // pos: saca el elemento que esta en pos
@@ -45,7 +29,7 @@ public:
 
     // pre: 0 < pos <= cantidad
     // pos: devuelve el elemento que esta en pos
-    Dato consulta(int pos);
+    Personaje consulta(int pos);
 
 
     bool vacia();
@@ -68,11 +52,11 @@ public:
     // devuelve el siguiente elemento (el elemento que apunta actual)
     // PRE: hay_siguiente tiene que haber devuelto true previamente
     // POS: devuelve el elemento actual y avanza
-    Dato siguiente ( );
+    Personaje siguiente ( );
 
 
     // pos: devuelve true si d esta en la lista, false de lo contrario
-    bool esta(Dato d);
+    bool esta(Personaje p);
 
 
 private:

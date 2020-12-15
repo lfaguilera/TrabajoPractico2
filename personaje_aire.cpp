@@ -1,8 +1,8 @@
 #include "personaje_aire.h"
 
 
-PersonajeAire::PersonajeAire(string nombre, Personaje personaje) : Personaje(){
-    nombre = nombre;
+PersonajeAire::PersonajeAire() : Personaje(){
+    alimento = "none";
 
 }
 

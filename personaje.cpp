@@ -8,16 +8,21 @@ Personaje::Personaje()  {
     escudo = 0;
     vidas = 0;
     energia = 0;
+    alimento = "";
 }
 
 void Personaje::alimentarse() {
+}
+
+string Personaje::cadenaNombre() {
+    return nombre;
 }
 
 void Personaje::nombrar(string nombreNuevo) {
     nombre = nombreNuevo;
 }
 
-Personaje Personaje::mostrar(Personaje personaje) {
+void Personaje::mostrar() {
 
     cout<< "Nombre :\n\t" << nombre << endl;
     cout << "Escudo :\n\t" << escudo << endl;

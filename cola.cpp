@@ -6,8 +6,8 @@ Cola::Cola() {
     ultimo = 0;
 }
 
-void Cola::alta(Dato d) {
-    Nodo* nuevo = new Nodo(d);
+void Cola::alta(Personaje p) {
+    Nodo* nuevo = new Nodo(p);
     if (vacia())
         primero = nuevo;
     else
@@ -23,7 +23,7 @@ void Cola::baja() {
     delete borrar;
 }
 
-Dato Cola::consulta() {
+Personaje Cola::consulta() {
     return primero->obtener_dato();
 }
 
@@ -32,7 +32,7 @@ bool Cola::vacia() {
 }
 
 Cola::~Cola() {
-    std::cout << "Estoy ejecutando el destructor " << std::endl;
+    std::cout << "Ejecutando el destructor " << std::endl;
     while (! vacia())
         baja();
 }

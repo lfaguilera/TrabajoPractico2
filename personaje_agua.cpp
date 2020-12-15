@@ -1,8 +1,7 @@
 
 #include "personaje_agua.h"
 
-PersonajeAgua::PersonajeAgua(string nombre , Personaje personaje) : Personaje() {
-    nombre = nombre;
+PersonajeAgua::PersonajeAgua() : Personaje() {
     alimento = "plancton";
     veces_alimentado = 0;
 }
@@ -10,7 +9,7 @@ PersonajeAgua::PersonajeAgua(string nombre , Personaje personaje) : Personaje() 
 
 void PersonajeAgua::alimentar() {
     if ((veces_alimentado < 3) && ((energia += 10) > 20)) {
-        cout << nombre << "no puede alimentarse mas." << endl;
+        cout << "El personaje " << nombre << " ya no puede alimentarse mas." << endl;
         energia = 20;
     }
 }

@@ -7,24 +7,26 @@
 
 #include <iostream>
 #include <string>
+#include "lista.h"
 using namespace std;
 
 class menu {
 private:
     int eleccion;
     int index;
-    string elementos[4] = {"agua","fuego","tierra","aire"};
     string elemento;
     string nombre;
+
 public:
-    void elegir();
-    void agregarPersonaje (elemento);
-    void eliminarPersonaje (string nombre);
-    void mostrarTodos ();
-    void buscarNombre (string nombre);
-    void alimentarPrsonaje (string nombre) ;
+    menu();
+    void opciones(Lista Personajes);
+    void agregarPersonaje (string elemento);
+    void eliminarPersonaje (string nombreBorrar , Lista listaPersonajes);
+    void mostrarTodos (Lista listaPersonajes);
+    void buscarNombre (string nombreBuscado , Lista listaPersonajes);
+    void alimentarPersonaje (string nombre) ;
     int salir ();
-    void loop(menu elegir);
+    void loop(menu elegir , Lista listaPersonajes);
 };
 
 

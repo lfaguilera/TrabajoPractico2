@@ -10,11 +10,12 @@
 #include <string>
 
 using namespace std;
+/*
 void leerArchivos() {
     ifstream archivo;
 
 }
-
+*/
 
 struct Registro
 {
@@ -24,7 +25,7 @@ struct Registro
     int vida;
 };
 
-int main()
+int leerArchivos()
 {
     string filename = "personajes.csv";
     Registro registro{};

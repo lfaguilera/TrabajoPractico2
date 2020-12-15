@@ -1,18 +1,20 @@
 //
 // Created by Usuario on 26/11/2020.
 //
-
+#include <iostream>
 #include <string>
 #include "menu.h"
-#include "lista.h"
-#include "personaje_agua.h"
-#include "personaje_aire.h"
-#include "personaje_fuego.h"
-#include "personaje_tierra.h"
 
 using namespace std;
 
-void menu::elegir() {
+menu::menu() {
+    eleccion = 0;
+    index = 0;
+    elemento = "none";
+    nombre = "none";
+}
+
+void menu::opciones(Lista listaPersonajes) {
     menu elegir;
     cout<<"1. Agregar un nuevo personaje.\n"
           "2. Eliminar un personaje.\n"
@@ -27,30 +29,31 @@ void menu::elegir() {
         case 1: {
             string elemental;
             cout<<"que elemento [agua|fuego|tierra|aire] "<<endl;
-            cin >> elemental;
+            cin >> elemento;
             elegir.agregarPersonaje(elemento);
             break;
         }
         case 2: {
+            string nombreBorrar;
             cout<<"\n Cual personaje quiere eliminar : ";
-            cin>>nombre;
-            elegir.eliminarPersonaje(nombre);
+            cin>> nombreBorrar ;
+            elegir.eliminarPersonaje(nombreBorrar , listaPersonajes);
             break;
         }
         case 3: {
-            elegir.mostrarTodos();
+            elegir.mostrarTodos(listaPersonajes);
             break;
         }
         case 4: {
             cout<<"\n Cual personaje quiere ver : ";
             cin>>nombre;
-            elegir.buscarNombre(nombre);
+            elegir.buscarNombre(nombre , listaPersonajes);
             break;
         }
         case 5: {
             cout<<"\n Cual personaje quiere alimentar : ";
             cin>>nombre;
-            elegir.alimentarPrsonaje(nombre);
+            elegir.alimentarPersonaje(nombre);
             break;
         }
         case 6: {
@@ -58,7 +61,7 @@ void menu::elegir() {
             break;
         }
         default: {
-            elegir.loop(elegir);
+            elegir.loop(elegir , listaPersonajes);
         }
     }
 
@@ -66,68 +69,91 @@ void menu::elegir() {
 }
 
 
-void menu::agregarPersonaje(string elemento) {
+void menu::agregarPersonaje(string elementoAgregar) {
     cout << "Agregar nuevo personaje\n" << endl;
+    string elementos[4] = {"agua","fuego","tierra","aire"};
 
-    if (elemento == "none") {
+    if (elementoAgregar == "none") {
         index = rand()% 3 - 0;
         elemento = elementos[index];
     } else {
-        if (elemento == "aire"){
+        if (elementoAgregar == "aire"){
             index = 3 ;
         }
-        if (elemento == "tierra"){
+        if (elementoAgregar == "tierra"){
             index = 2;
         }
-        if (elemento == "fuego"){
+        if (elementoAgregar == "fuego"){
             index = 1;
         }
-        if (elemento == "agua"){
+        if (elementoAgregar == "agua"){
             index = 0;
         }
     }
 
+    cout << "Cargue un nombre de personaje : " << endl;
+    cin >> nombre ;
+
     switch (index) {
         case 0 : {
             PersonajeAgua agua;
-            agua.agregarPersonaje();
+            agua.nombrar(nombre);
+            cout << "Este es el personaje creado : \n" << endl;
+            agua.mostrar();
             break;
         }
         case 1 : {
             PersonajeFuego fuego;
-            fuego.agregarPersonaje();
+            fuego.nombrar(nombre);
+            cout << "Este es el personaje creado : \n" << endl;
+            fuego.mostrar();
             break;
         }
         case 2 : {
-            PersonajeTierra Tierra;
-            Tierra.agregarPersonaje();
+            PersonajeTierra tierra;
+            tierra.nombrar(nombre);
+            cout << "Este es el personaje creado : \n" << endl;
+            tierra.mostrar();
             break;
         }
         case 3 : {
-            PersonajeAire Aire;
-            Aire.agregarPersonaje();
+            PersonajeAire aire;
+            aire.nombrar(nombre);
+            cout << "Este es el personaje creado : \n" << endl;
+            aire.mostrar();
+
             break;
         }
     }
 
+
 }
 
 
-void menu::eliminarPersonaje(string nombre) {
+void menu::eliminarPersonaje(string nombreBorrar , Lista listaPersonajes) {
     cout << "Eliminar personaje\n" << endl;
+    for(int i = 1; i <= listaPersonajes.obtener_cantidad(); i++)
+        if (nombre == listaPersonajes.consulta(i).cadenaNombre() ){
+            listaPersonajes.consulta(i).mostrar();
+        }
+
 }
 
-void menu::mostrarTodos() {
+void menu::mostrarTodos(Lista listaPersonajes) {
     cout << "Mostrar todos los nombres de personajes\n" << endl;
 }
 
-void menu::buscarNombre(string nombre) {
+void menu::buscarNombre(string nombreBuscado , Lista listaPersonajes) {
+    for(int i = 1; i <= listaPersonajes.obtener_cantidad(); i++)
+        if (nombre == listaPersonajes.consulta(i).cadenaNombre() ){
+            listaPersonajes.consulta(i).mostrar();
+        }
+
     cout << "Buscar por nombre los detalles de un personaje particular\n" << endl;
 }
 
-void menu::alimentarPrsonaje(Nodo nombre) {
+void menu::alimentarPersonaje(string cadena) {
     cout << "Alimentar un personaje\n" << endl;
-    nombre.eliminar();
 
     switch (index) {
         case 0: {
@@ -158,8 +184,8 @@ int menu::salir() {
     return 0;
 }
 
-void menu::loop(menu elegir) {
+void menu::loop(menu elegir , Lista listaPersonajes) {
     cout<< "\n!!! la opcion ingresada es invalida !!!\n"
            "\t\tintentelo nuevamente\n"<<endl;
-    elegir.elegir();
+    elegir.opciones(listaPersonajes);
 }

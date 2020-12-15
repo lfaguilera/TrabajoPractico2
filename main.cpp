@@ -5,11 +5,15 @@
 #include "menu.h"
 
 
+
 int main() {
     std::cout << "Hello, World!" << std::endl;
+    Lista listaPersonajes;
     leerArchivos();
-    menu opciones;
-    opciones.elegir();
+    menu elegir;
+    elegir.opciones(listaPersonajes);
+
+
     return 0;
 }
 

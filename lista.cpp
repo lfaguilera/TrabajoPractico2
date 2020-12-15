@@ -10,8 +10,8 @@ bool Lista::vacia() {
     return (cantidad == 0);
 }
 
-void Lista::alta(Dato d, int pos , string elemento) {
-    Nodo* nuevo = new Nodo(d);
+void Lista::alta(Personaje p, int pos ) {
+    Nodo* nuevo = new Nodo(p);
     if (pos == 1) {
         nuevo->cambiar_siguiente(primero);
         primero = nuevo;
@@ -25,75 +25,8 @@ void Lista::alta(Dato d, int pos , string elemento) {
     }
     cantidad++;
 }
-}
 
-void Lista::altaFuego(PersonajeAgua d, int pos) {
-    Nodo* nuevo = new Nodo(d);
-    if (pos == 1) {
-        nuevo->cambiar_siguiente(primero);
-        primero = nuevo;
-        reiniciar();
-    }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        Nodo* siguiente = anterior->obtener_siguiente();
-        nuevo->cambiar_siguiente(siguiente);
-        anterior->cambiar_siguiente(nuevo);
-    }
-    cantidad++;
 
-}
-
-void Lista::altaTierra(PersonajeFuego d, int pos) {
-    Nodo* nuevo = new Nodo(d);
-    if (pos == 1) {
-        nuevo->cambiar_siguiente(primero);
-        primero = nuevo;
-        reiniciar();
-    }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        Nodo* siguiente = anterior->obtener_siguiente();
-        nuevo->cambiar_siguiente(siguiente);
-        anterior->cambiar_siguiente(nuevo);
-    }
-    cantidad++;
-
-}
-
-void Lista::altaAire(PersonajeTierra d, int pos) {
-    Nodo* nuevo = new Nodo(d);
-    if (pos == 1) {
-        nuevo->cambiar_siguiente(primero);
-        primero = nuevo;
-        reiniciar();
-    }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        Nodo* siguiente = anterior->obtener_siguiente();
-        nuevo->cambiar_siguiente(siguiente);
-        anterior->cambiar_siguiente(nuevo);
-    }
-    cantidad++;
-
-}
-
-void Lista::altaAgua(PersonajeAire d, int pos) {
-    Nodo* nuevo = new Nodo(d);
-    if (pos == 1) {
-        nuevo->cambiar_siguiente(primero);
-        primero = nuevo;
-        reiniciar();
-    }
-    else {
-        Nodo* anterior = obtener_nodo(pos - 1);
-        Nodo* siguiente = anterior->obtener_siguiente();
-        nuevo->cambiar_siguiente(siguiente);
-        anterior->cambiar_siguiente(nuevo);
-    }
-    cantidad++;
-
-}
 
 Nodo* Lista::obtener_nodo(int pos) {
     Nodo* aux = primero;
@@ -102,7 +35,7 @@ Nodo* Lista::obtener_nodo(int pos) {
     return aux;
 }
 
-Dato Lista::consulta(int pos) {
+Personaje Lista::consulta(int pos) {
     Nodo* aux = obtener_nodo(pos);
     return aux->obtener_dato();
 }
@@ -141,17 +74,17 @@ bool Lista::hay_siguiente() {
     return (actual != 0);
 }
 
-Dato Lista::siguiente() {
+Personaje Lista::siguiente() {
     Nodo* aux = actual;
     actual = actual->obtener_siguiente();
     return aux->obtener_dato();
 }
 
-bool Lista::esta(Dato d) {
+bool Lista::esta(Personaje p) {
     bool encontrado = false;
     reiniciar();
     while (hay_siguiente() && ! encontrado) {
-        if (siguiente() == d)
+        if (siguiente() == p)
             encontrado = true;
     }
     return encontrado;

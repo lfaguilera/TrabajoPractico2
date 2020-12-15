@@ -12,7 +12,7 @@ typedef std::string Dato;
 class Nodo {
 private:
     // atributos
-    Dato dato;
+    Personaje dato;
     Nodo* siguiente;
     Nodo* anterior;
 
@@ -21,13 +21,13 @@ public:
     // constructor
     // PRE:
     // POS: crea un nodo con dato = d y siguiente = 0
-    Nodo(Dato d);
+    Nodo(Personaje p);
 
-    void cambiar_dato(Dato d);
+    void cambiar_dato(Personaje p);
 
     void cambiar_siguiente(Nodo* s);
 
-    Dato obtener_dato();
+    Personaje obtener_dato();
 
     Nodo* obtener_siguiente();
 };
